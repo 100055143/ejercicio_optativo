@@ -34,15 +34,7 @@ export class LibretaPage {
      .getContacts()  //Retorna la DB
      .snapshotChanges() //retorna los cambios en la DB (key and value)
      .map(
-       /*
-       Estas líneas retornan un array de  objetos con el id del registro y su contenido
-       {
-         "key":"value",
-         contact.name,
-         contact.organization,
-         ...
-       }
-       */
+
        changes => {
          return changes.map(c=> ({
            key: c.payload.key, ...c.payload.val()
@@ -58,8 +50,6 @@ export class LibretaPage {
 
   onItemTapped($event, contact){
     this.navCtrl.push(VerContactoPage, contact);
-   
-
   }
 
 }

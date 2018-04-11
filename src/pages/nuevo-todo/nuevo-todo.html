@@ -1,0 +1,47 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Agenda Electrónica</ion-title>
+  </ion-navbar>
+
+  <ion-navbar>
+    <ion-title>Nueva Tarea</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<form (ngSubmit)="onAddTodo(f.value)" #f="ngForm">
+    <ion-list>
+        <ion-item>
+          <ion-label>Evento</ion-label>
+          <ion-input type="text" placeholder="Texto" name="evento" ngModel required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Fecha</ion-label>
+          <ion-input type="text" placeholder="dd/mm/yyyy" name="fecha" ngModel required></ion-input>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label>Lugar</ion-label>
+            <ion-input type="text" placeholder="Madrid" name="lugar" ngModel></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Prioridad</ion-label>
+          <ion-input type="text" placeholder="alta/media/baja" name="prioridad" ngModel></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+     <button ion-button block type="submit" [disabled]="!f.valid">Aceptar</button>
+
+</form>
+
+  
+
+</ion-content>

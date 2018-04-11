@@ -7,12 +7,14 @@ export class ContactService{
 
     private contactsRef=this.db.list<Contacto>('Contacto');
 
+
     constructor(private db:AngularFireDatabase){
 
     }
 
     addContact(value: Contacto){
-	
+       // this.contacts.push(value);
+        //console.log('**nav params:', value);
         return this.contactsRef.push(value);
     }
 

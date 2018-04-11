@@ -14,7 +14,7 @@
 
   <ion-navbar>
     <ion-buttons end>
-        <button ion-button icon-only>
+        <button ion-button icon-only (click)="onLoadNewPage()">
           <ion-icon name="add"></ion-icon>
         </button>
       </ion-buttons>
@@ -24,5 +24,15 @@
 
 
 <ion-content padding>
+
+  <ion-list>
+    <button ion-item *ngFor="let todo of todos$ | async" (click)="onItemTapped($event, todo)">
+     <p><strong>Evento: </strong>{{todo.evento}}</p> 
+     <p><strong>Fecha: </strong>{{todo.fecha}}</p>
+     <p><strong>Lugar: </strong>{{todo.lugar}}</p>
+     <p><strong>Prioridad: </strong>{{todo.prioridad}}</p>
+    </button>
+    
+  </ion-list>
 
 </ion-content>
