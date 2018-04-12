@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { LibretaPage, TodoPage,NuevoContactoPage, VerContactoPage } from '../pages/pages';
+import { LibretaPage, TodoPage,NuevoContactoPage, VerContactoPage, NuevoTodoPage, VerTodoPage } from '../pages/pages';
 import{ContactService} from '../services/contacts.service';
 import {FIREBASE_CONFIG} from '../app/firebase.credentials';
 
@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database'
+import { TodoService } from '../services/todo.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import {AngularFireDatabaseModule} from 'angularfire2/database'
     LibretaPage,
     TodoPage,
     NuevoContactoPage,
-    VerContactoPage
+    VerContactoPage,
+    NuevoTodoPage,
+    VerTodoPage
     
   ],
   imports: [
@@ -37,13 +40,16 @@ import {AngularFireDatabaseModule} from 'angularfire2/database'
     LibretaPage,
     TodoPage,
     NuevoContactoPage,
-    VerContactoPage
+    VerContactoPage,
+    NuevoTodoPage,
+    VerTodoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ContactService
+    ContactService,
+    TodoService
   ]
 })
 export class AppModule {}

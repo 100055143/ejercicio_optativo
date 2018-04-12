@@ -34,7 +34,6 @@ export class VerContactoPage {
   }
 
   onRemoveContact(value: Contacto){
-
     this.contactService.removeContact(value);
     this.navCtrl.pop();
 
