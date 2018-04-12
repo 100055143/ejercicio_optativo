@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Todo } from '../../models/todo.model';
+import { Tarea } from '../../models/todo.model';
 import { TodoService } from '../../services/todo.service';
 
 /**
@@ -17,27 +17,30 @@ import { TodoService } from '../../services/todo.service';
 })
 export class VerTodoPage {
 
-  todo: Todo;
+  tareap: Tarea;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private TodoService: TodoService) {
+  
+    this.tareap = this.navParams.data;
+    console.log(this.tareap.key);
+  }
+  onUpdateTarea(value: Tarea){
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private todoService: TodoService) {
+    this.TodoService.updateTarea(value);
+    this.navCtrl.pop();
 
-    this.todo = this.navParams.data;
-    console.log(this.todo.key);
+  }
+
+  onRemoveTarea(value: Tarea){
+
+    this.TodoService.removeTarea(value);
+    this.navCtrl.pop();
+
+  }
+
+  
     
   }
 
-  onUpdateTodo(value: Todo){
+  
 
-    this.todoService.updateTodo(value);
-    this.navCtrl.pop();
 
-  }
-
-  onRemoveTodo(value: Todo){
-
-    this.todoService.removeTodo(value);
-    this.navCtrl.pop();
-
-  }
-
-}

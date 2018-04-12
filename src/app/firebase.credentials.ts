@@ -1,8 +1,8 @@
 export const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyCXLDosKxUxoS19BV68-gjQ1xBjB0LHrLo",
-  authDomain: "agenda-a8a8a.firebaseapp.com",
-  databaseURL: "https://agenda-a8a8a.firebaseio.com",
-  projectId: "agenda-a8a8a",
-  storageBucket: "agenda-a8a8a.appspot.com",
-  messagingSenderId: "612011742425"
+  apiKey: "AIzaSyC3GpCaX5BX1h1C8L5mpbgBfcidwT88eCc",
+  authDomain: "agendaprofesor-a8988.firebaseapp.com",
+  databaseURL: "https://agendaprofesor-a8988.firebaseio.com",
+  projectId: "agendaprofesor-a8988",
+  storageBucket: "agendaprofesor-a8988.appspot.com",
+  messagingSenderId: "640588255756"
   };

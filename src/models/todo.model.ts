@@ -1,9 +1,9 @@
-export interface Todo {
+export interface Tarea {
 
     key?: string;
-    evento: string;
-    fecha: string;
-    lugar: string;
-    prioridad: string;
+    Evento: string;
+    Fecha: string;
+    Lugar: string;
+    Prioridad: string;
     
 }

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TodoService } from '../../services/todo.service';
-import { Todo } from '../../models/todo.model';
-
+import { Tarea } from '../../models/todo.model';
 /**
  * Generated class for the NuevoTodoPage page.
  *
@@ -17,14 +16,12 @@ import { Todo } from '../../models/todo.model';
 })
 export class NuevoTodoPage {
 
-  constructor(public navCtrl: NavController, private todoService: TodoService) {
-
-   
+  constructor(public navCtrl: NavController, private TodoService: TodoService) {
   }
 
-  onAddTodo(value: Todo){
+  onAddTarea(value: Tarea){
 
-    this.todoService.addTodo(value).then(ref => {
+    this.TodoService.addTarea(value).then(ref => {
       console.log(ref.key);
     });
     this.navCtrl.pop();

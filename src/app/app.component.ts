@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {LibretaPage, TodoPage} from '../pages/pages'
 
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { AuthProvider } from '../providers/auth/auth';
 
 
 @Component({
@@ -14,11 +16,11 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private auth: AuthProvider  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -32,6 +34,14 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.auth.Session.subscribe(session=>{
+        if(session){
+            this.rootPage = HomePage;
+        }
+          else{
+            this.rootPage = LoginPage;
+          }
+      });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();

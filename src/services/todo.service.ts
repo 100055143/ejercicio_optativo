@@ -1,34 +1,33 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
-import { Todo } from "../models/todo.model";
+import { Tarea } from "../models/todo.model";
 
 @Injectable()
 export class TodoService{
 
-    private todosRef=this.db.list<Todo>('Todo');
-
+    private tareasRef=this.db.list<Tarea>('TareasPendientes');
 
     constructor(private db:AngularFireDatabase){
 
     }
 
-    addTodo(value: Todo){
-
-        return this.todosRef.push(value);
+    addTarea(value: Tarea){
+    
+        return this.tareasRef.push(value);
     }
 
-    updateTodo(value: Todo){
+    updateTarea(value: Tarea){
 
-        return this.todosRef.update(value.key,value);
+        return this.tareasRef.update(value.key,value);
     }
 
-    removeTodo(value: Todo){
+    removeTarea(value: Tarea){
         
-        return this.todosRef.remove(value.key);
+        return this.tareasRef.remove(value.key);
     }
 
-    getTodos(){
+    getTarea(){
         
-        return this.todosRef;
+        return this.tareasRef;
     }
 }

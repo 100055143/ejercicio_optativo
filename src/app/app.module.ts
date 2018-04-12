@@ -6,15 +6,19 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LibretaPage, TodoPage,NuevoContactoPage, VerContactoPage, NuevoTodoPage, VerTodoPage } from '../pages/pages';
 import{ContactService} from '../services/contacts.service';
+import{TodoService} from '../services/todo.service';
 import {FIREBASE_CONFIG} from '../app/firebase.credentials';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {AngularFireModule} from 'angularfire2';
-import {AngularFireDatabaseModule} from 'angularfire2/database'
-import { TodoService } from '../services/todo.service';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import { AuthProvider } from '../providers/auth/auth';
+import { LoginPage } from '../pages/login/login';
 
+  
 @NgModule({
   declarations: [
     MyApp,
@@ -23,7 +27,8 @@ import { TodoService } from '../services/todo.service';
     TodoPage,
     NuevoContactoPage,
     VerContactoPage,
-    NuevoTodoPage,
+    LoginPage,
+    NuevoTodoPage, 
     VerTodoPage
     
   ],
@@ -31,7 +36,11 @@ import { TodoService } from '../services/todo.service';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
+  //  AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireDatabaseModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +50,8 @@ import { TodoService } from '../services/todo.service';
     TodoPage,
     NuevoContactoPage,
     VerContactoPage,
-    NuevoTodoPage,
+    LoginPage,
+    NuevoTodoPage, 
     VerTodoPage
   ],
   providers: [
@@ -49,7 +59,8 @@ import { TodoService } from '../services/todo.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContactService,
-    TodoService
+    TodoService,
+    AuthProvider
   ]
 })
 export class AppModule {}
